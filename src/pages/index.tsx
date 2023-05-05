@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import BackToTopButton from "@/components/BackToTopButton";
+import Footer from "@/components/Footer";
 import MovieCard from "@/components/MovieCard";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import Head from "next/head";
@@ -9,7 +10,7 @@ import { Pagination } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
 const API_KEY = "f7fdccd2a14340943e97f8d9bb6a6584";
-const year = new Date().getFullYear();
+
 interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -81,16 +82,17 @@ export default function Home() {
 
   const renderPageButtons = () => {
     const buttons = [];
-    for (let i = 1; i <= 8; i++) {
+    for (let i = 1; i <= 5; i++) {
       buttons.push(
-        <Pagination.Item
+        <button
           key={i}
-          active={activePage === i}
           onClick={() => handlePageChange(i)}
-          className="p-2 px-4 bg-blue-500 text-white rounded-full font-bold"
+          className={`p-2 px-4 bg-blue-500 text-white rounded-full  font-bold hover:bg-blue-700 ${
+            activePage === i ? "bg-blue-700" : ""
+          }`}
         >
           {i}
-        </Pagination.Item>
+        </button>
       );
     }
     return buttons;
@@ -138,33 +140,26 @@ export default function Home() {
             />
           ))}
         </main>
-        <Pagination className="flex gap-2 items-center justify-center mt-4">
-          <Pagination.First
-            onClick={() => handlePageChange(1)}
-            className="p-2 bg-blue-500 text-white rounded-full font-bold"
-          />
-          <Pagination.Prev
+        <div className="flex gap-2 items-center justify-center mt-4">
+          <button
             onClick={() => handlePageChange(activePage - 1)}
             disabled={activePage === 1}
-            className="p-2 bg-blue-500 text-white rounded-full font-bold"
-          />
+            className="p-2 bg-blue-500 text-white rounded-full font-bold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {"< Anterior"}
+          </button>
 
           {renderPageButtons()}
-
-          <Pagination.Next
+          <button
             onClick={() => handlePageChange(activePage + 1)}
             disabled={activePage === totalPages}
-            className="p-2 bg-blue-500 text-white rounded-full font-bold"
-          />
-          <Pagination.Last
-            onClick={() => handlePageChange(totalPages)}
-            className="p-2 bg-blue-500 text-white rounded-full font-bold"
-          />
-        </Pagination>
+            className="p-2 bg-blue-500 text-white rounded-full font-bold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {"Próxima >"}
+          </button>
+        </div>
         <BackToTopButton />
-        <footer className="mt-auto">
-          <p className="text-center">&copy; {year} Matheus Jurkovich</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );
