@@ -52,7 +52,7 @@ export default function Popular() {
     <>
       <Head>
         <meta charSet="utf-8" />
-        <title>Movie API</title>
+        <title>Movie API - Popular</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
