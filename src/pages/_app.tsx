@@ -8,7 +8,7 @@ const roboto = Poppins({
   subsets: ["latin"],
   display: "swap",
 });
-export default function MyApp({ Component, pageProps }: any) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <main className={roboto.className}>
       <Component {...pageProps} />

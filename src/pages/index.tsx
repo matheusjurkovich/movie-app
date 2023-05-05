@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BackToTopButton from "@/components/BackToTopButton";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Main from "@/components/Main";
-import Pagination from "@/components/Pagination";
 import Head from "next/head";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { Form } from "react-bootstrap";
@@ -33,10 +32,6 @@ export default function Home() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [activePage, setActivePage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-
-  const handlePageChange = (pageNumber: number) => {
-    setActivePage(pageNumber);
-  };
 
   const fetchMovies = async (url: string): Promise<any> => {
     try {

@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Main from "@/components/Main";
 import Pagination from "@/components/Pagination";
 import Head from "next/head";
+import { get } from "http";
 
 const API_KEY = process.env.API_KEY;
 
@@ -29,6 +30,11 @@ export default function Popular() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const getMovie = async () => {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`;
+    fetchMovies(url);
   };
   const fetchTotalPages = async () => {
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US`;
@@ -59,7 +65,7 @@ export default function Popular() {
       <div className="flex flex-col min-h-screen">
         <Header
           searchInput={search}
-          searchMovies={fetchPopularMovies}
+          searchMovies={getMovie}
           setSearch={setSearch}
         />
         <Main movies={movies} />

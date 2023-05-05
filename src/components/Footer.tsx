@@ -4,7 +4,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="mt-16">
-      <p className="text-center">&copy; {year} Matheus Jurkovich</p>
+      <hr />
+      <p className="mt-10 text-center">&copy; {year} Matheus Jurkovich</p>
     </footer>
   );
 }
