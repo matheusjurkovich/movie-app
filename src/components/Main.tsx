@@ -11,6 +11,8 @@ export default function Main({ movies }: { movies: Movie[] }) {
           imageUrl={movie.poster_path}
           title={movie.title}
           description={movie.overview}
+          date={movie.release_date}
+          genres={movie.genre_names}
         />
       ))}
     </main>

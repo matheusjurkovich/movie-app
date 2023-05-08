@@ -14,6 +14,7 @@ export interface Movie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
+  genre_names?: string[];
   id: number;
   original_language: string;
   original_title: string;
@@ -30,8 +31,6 @@ export interface Movie {
 export default function Home() {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [activePage, setActivePage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
 
   const fetchMovies = async (url: string): Promise<any> => {
     try {
@@ -45,7 +44,7 @@ export default function Home() {
   };
 
   const getMovie = async () => {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}&language=pt-BR`;
     fetchMovies(url);
   };
 
