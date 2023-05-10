@@ -1,7 +1,6 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
 
 interface HeaderProps {
   searchInput: string;
@@ -29,7 +28,7 @@ export default function Header({
         </Link>
       </div>
       <div className="flex w-1/4 bg-white p-1 rounded-xl justify-between max-md:w-full">
-        <Form.Control
+        <input
           type="text"
           placeholder="Digite o nome de um filme"
           className="w-full rounded-xl p-1 focus:border-0 disabled:bg-gray-200
