@@ -6,7 +6,6 @@ import Header from "@/components/Header";
 import Main from "@/components/Main";
 import Head from "next/head";
 import { MagnifyingGlass } from "@phosphor-icons/react";
-import { Form } from "react-bootstrap";
 
 const API_KEY = process.env.API_KEY;
 
@@ -71,7 +70,7 @@ export default function Home() {
               Search movies here
             </h1>
             <div className="flex w-1/4 bg-gray-200 p-2 rounded-xl justify-between max-md:w-full">
-              <Form.Control
+              <input
                 type="text"
                 placeholder="Digite o nome de um filme"
                 className="w-full rounded-xl p-2 focus:border-0 bg-gray-200"
