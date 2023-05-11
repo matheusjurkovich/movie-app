@@ -1,38 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movie App
 
-## Getting Started
+Este é um repositório que contém um aplicativo web para visualização e busca de informações sobre filmes.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- Visualização de filmes em destaque.
+- Pesquisa de filmes por título.
+- Detalhes completos sobre cada filme, incluindo sinopse, classificação, elenco, entre outros. \ Em construção
+- Avaliação e comentários dos filmes pelos usuários.\ Em construção
+
+## Tecnologias
+- ReactJs
+- NextJs
+- TailwindCss
+- TheMovieDataBase API
+
+## Pré-requisitos
+
+Certifique-se de ter os seguintes requisitos antes de executar o aplicativo:
+
+- Node.js (versão 12 ou superior)
+- NPM (gerenciador de pacotes do Node.js)
+- Um navegador web moderno (Chrome, Firefox, Safari, etc.)
+
+## Instalação
+
+1. Clone o repositório em sua máquina local:
+   ```bash
+   git clone https://github.com/matheusjurkovich/movie-app.git
+   ```
+
+2. Acesse o diretório do projeto:
+   ```bash
+   cd movie-app
+   ```
+
+3. Instale as dependências do projeto:
+   ```bash
+   npm install
+   ```
+
+## Configuração
+
+Antes de executar o aplicativo, você precisa configurar algumas variáveis de ambiente. Crie um arquivo `.env` na raiz do projeto e defina as seguintes variáveis:
+
+```
+REACT_APP_API_KEY=<sua_chave_de_API>
+REACT_APP_API_URL=https://api.themoviedb.org/3
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Você pode obter uma chave de API gratuita em [https://www.themoviedb.org](https://www.themoviedb.org). Certifique-se de se inscrever e gerar uma chave válida.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Execução
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Após a instalação e configuração, você pode executar o aplicativo localmente. No diretório do projeto, execute o seguinte comando:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Isso iniciará o servidor de desenvolvimento e o aplicativo estará disponível em `http://localhost:3000`.
 
-## Learn More
+## Contribuição
 
-To learn more about Next.js, take a look at the following resources:
+Contribuições são bem-vindas! Se você quiser melhorar este projeto, siga as etapas abaixo:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Faça um fork deste repositório.
+2. Crie um branch para suas alterações:
+   ```bash
+   git checkout -b minha-branch
+   ```
+3. Faça as alterações desejadas e faça commit das mesmas:
+   ```bash
+   git commit -m "Minhas alterações"
+   ```
+4. Envie as alterações para o seu fork:
+   ```bash
+   git push origin minha-branch
+   ```
+5. Abra um pull request neste repositório.
