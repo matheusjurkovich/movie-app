@@ -14,7 +14,7 @@ export interface MovieCardProps {
 export default function MovieCard({ movie }: { movie: MovieCardProps }) {
   return (
     <Link
-      href="/movie/:id"
+      href={`/movie/${movie.id}`}
       className="flex w-[12.5rem] flex-col items-center rounded-xl bg-gray-300 shadow-lg transition-transform hover:scale-105"
     >
       <Image
@@ -25,17 +25,18 @@ export default function MovieCard({ movie }: { movie: MovieCardProps }) {
         width={500}
         height={500}
         className="w-full rounded-t-xl"
+        priority
       />
       <div className="flex h-full w-full flex-col justify-between gap-2 p-2">
         <h2 className="text-2xl font-bold">{movie?.title}</h2>
 
-        <p className="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Star size={16} fill="yellow" />
             {movie?.vote_average}
           </div>
-          <div>{movie?.release_date}</div>
-        </p>
+          <p>{movie?.release_date}</p>
+        </div>
       </div>
     </Link>
   );

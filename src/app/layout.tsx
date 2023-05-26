@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Roboto } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const roboto = Roboto({
+const poppins = Poppins({
   weight: ["300", "400", "500", "700"],
   style: ["normal", "italic"],
   subsets: ["latin"],
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={roboto.className}>{children}</body>
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 }
