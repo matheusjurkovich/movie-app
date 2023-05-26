@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
+const nextConfig = {};
 
 module.exports = {
-  env: {
-    API_KEY: "f7fdccd2a14340943e97f8d9bb6a6584",
+  nextConfig,
+  images: {
+    domains: ["image.tmdb.org"],
   },
 };
