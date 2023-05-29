@@ -24,6 +24,7 @@ export default function Movie() {
   const [recomendations, setRecomendations] = useState<MovieCardProps[]>([]);
 
   const { id } = useParams();
+
   useEffect(() => {
     const getMovie = async () => {
       try {
