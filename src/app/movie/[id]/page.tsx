@@ -29,7 +29,13 @@ export default function Movie() {
     const getMovie = async () => {
       try {
         const data = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=pt-BR`
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=pt-BR`,
+          {
+            headers: {
+              accept: "application/json",
+              authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMmM1NGY4MDFjYzMwZjliOTRjNTM0Mjk1MDBjNTZhYSIsInN1YiI6IjY0NGFiM2E4MGU0ZmM4MDJmYjMzMDJiNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VO0EgMVnQrokBdZiArutvcQ_aSUCBOSwMxhaAEMfzAM`,
+            },
+          }
         );
         setMovie(data.data);
       } catch (error) {
@@ -42,7 +48,13 @@ export default function Movie() {
     const getRecomendations = async () => {
       try {
         const data = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${apiKey}&language=pt-BR&page=1`
+          `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${apiKey}&language=pt-BR&page=1`,
+          {
+            headers: {
+              accept: "application/json",
+              authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMmM1NGY4MDFjYzMwZjliOTRjNTM0Mjk1MDBjNTZhYSIsInN1YiI6IjY0NGFiM2E4MGU0ZmM4MDJmYjMzMDJiNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VO0EgMVnQrokBdZiArutvcQ_aSUCBOSwMxhaAEMfzAM`,
+            },
+          }
         );
         setRecomendations(data.data.results.slice(0, 5));
       } catch (error) {
