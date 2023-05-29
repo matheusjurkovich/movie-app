@@ -2,7 +2,6 @@
 const nextConfig = {};
 
 module.exports = {
-  nextConfig,
   images: {
     domains: ["image.tmdb.org"],
   },

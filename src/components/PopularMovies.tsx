@@ -14,7 +14,6 @@ export default function PopularMovies() {
         `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`
       );
       setMovies(data.data.results.slice(0, 6));
-      console.log(data.data.results);
     };
     getMovies();
   }, []);
