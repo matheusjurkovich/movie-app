@@ -43,7 +43,7 @@ export default function Pagination({
     return buttons;
   };
   return (
-    <div className="mt-4 flex items-center justify-center gap-2">
+    <div className="flex items-center justify-center gap-2 pt-4 dark:bg-zinc-800 ">
       <button
         onClick={() => handlePageChange(activePage - 1)}
         disabled={activePage === 1}

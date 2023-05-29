@@ -7,9 +7,9 @@ import PopularMovies from "@/components/PopularMovies";
 
 export default function Home() {
   return (
-    <div className=" flex min-h-screen flex-col">
+    <div className=" flex min-h-screen flex-col ">
       <Header />
-      <main className="flex flex-col gap-6 p-6">
+      <main className="flex flex-col gap-6 p-6 dark:bg-zinc-800 ">
         <PopularMovies />
         <hr />
         <NewMovies />

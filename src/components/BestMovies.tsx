@@ -31,7 +31,9 @@ export default function BestMovies() {
   return (
     <section className="flex w-full flex-col">
       {" "}
-      <h1 className="mb-4 text-xl font-medium leading-tight">Best Movies</h1>
+      <h1 className="mb-4 text-xl font-medium leading-tight dark:text-white">
+        Best Movies
+      </h1>
       <div className="flex w-full items-center gap-4 overflow-x-auto p-4 ">
         {movies.map((movie: MovieCardProps) => (
           <MovieCard key={movie.id} movie={movie} />
