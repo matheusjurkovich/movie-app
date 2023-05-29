@@ -1,3 +1,4 @@
+import BackToTopButton from "@/components/BackToTopButton";
 import BestMovies from "@/components/BestMovies";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -15,6 +16,7 @@ export default function Home() {
         <hr />
         <BestMovies />
       </main>
+      <BackToTopButton />
       <Footer />
     </div>
   );

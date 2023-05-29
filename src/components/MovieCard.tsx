@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Star } from "lucide-react";
 import Link from "next/link";
+import dayjs from "dayjs";
 
 export interface MovieCardProps {
   id: number;
@@ -15,11 +16,11 @@ export default function MovieCard({ movie }: { movie: MovieCardProps }) {
   return (
     <Link
       href={`/movie/${movie.id}`}
-      className="flex w-[12.5rem] flex-col items-center rounded-xl bg-gray-300 shadow-lg transition-transform hover:scale-105"
+      className="flex min-h-[30rem] w-[15.5rem] flex-col items-center rounded-xl bg-gray-300 shadow-lg transition-transform hover:scale-105"
     >
       <Image
         src={`https://image.tmdb.org/t/p/w500${
-          movie?.poster_path ? movie.poster_path : ""
+          movie?.poster_path ? movie.poster_path : "Poster"
         }`}
         alt={movie?.title ? movie.title : ""}
         width={500}
@@ -35,7 +36,11 @@ export default function MovieCard({ movie }: { movie: MovieCardProps }) {
             <Star size={16} fill="yellow" />
             {movie?.vote_average}
           </div>
-          <p>{movie?.release_date}</p>
+          <p>
+            {movie?.release_date
+              ? dayjs(movie?.release_date).format("DD/MM/YYYY")
+              : movie?.release_date}
+          </p>
         </div>
       </div>
     </Link>

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 import { MovieCardProps } from "./MovieCard";
+import Link from "next/link";
+import { ArrowRightCircle } from "lucide-react";
 
 export default function NewMovies() {
   const [movies, setMovies] = useState<MovieCardProps[]>([]);
@@ -28,13 +30,19 @@ export default function NewMovies() {
     }
   });
   return (
-    <section className="flex flex-col">
+    <section className="flex w-full flex-col">
       {" "}
       <h1 className="mb-4 text-xl font-medium leading-tight">New Movies</h1>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex w-full items-center gap-4 overflow-x-auto p-4 ">
         {movies.map((movie: MovieCardProps) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
+        <Link title="Veja mais" href="/movies/new">
+          <ArrowRightCircle
+            size={48}
+            className="transition-transform hover:-translate-y-2 hover:scale-105"
+          />
+        </Link>
       </div>
     </section>
   );

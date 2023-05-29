@@ -7,6 +7,9 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import dayjs from "dayjs";
+import BackToTopButton from "@/components/BackToTopButton";
+
+import Loading from "@/components/Loading";
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 interface MovieProps extends MovieCardProps {
@@ -22,6 +25,7 @@ interface MovieProps extends MovieCardProps {
 export default function Movie() {
   const [movie, setMovie] = useState<MovieProps>();
   const [recomendations, setRecomendations] = useState<MovieCardProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { id } = useParams();
 
@@ -38,8 +42,10 @@ export default function Movie() {
           }
         );
         setMovie(data.data);
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
+        setIsLoading(false);
       }
     };
     getMovie();
@@ -56,14 +62,19 @@ export default function Movie() {
             },
           }
         );
-        setRecomendations(data.data.results.slice(0, 5));
+        setIsLoading(false);
+        setRecomendations(data.data.results.slice(0, 8));
       } catch (error) {
         console.error(error);
+        setIsLoading(false);
       }
     };
     getRecomendations();
   }, [id]);
 
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       {" "}
@@ -75,7 +86,7 @@ export default function Movie() {
             width={500}
             height={750}
             alt={movie?.title ? movie?.title : "Poster"}
-            className="h-80 w-72 rounded-2xl"
+            className="h-96  rounded-2xl"
           />
           <div className="flex h-1/2 flex-col justify-between gap-3">
             <h1 className="text-2xl font-bold">{movie?.title}</h1>
@@ -118,6 +129,7 @@ export default function Movie() {
           </div>
         </section>
       </main>
+      <BackToTopButton />
       <Footer />
     </>
   );
