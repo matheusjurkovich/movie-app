@@ -9,11 +9,13 @@ Este é um repositório que contém um aplicativo web para visualização e busc
 - Detalhes completos sobre cada filme, incluindo sinopse, classificação, elenco, entre outros. \ Em construção
 - Avaliação e comentários dos filmes pelos usuários.\ Em construção
 
-## Tecnologias
+## Tecnologias e bibilhotecas
 
 - ReactJs
 - NextJs
 - TailwindCss
+- Axios
+- Lucide React
 - TheMovieDataBase API
 
 ## Pré-requisitos
