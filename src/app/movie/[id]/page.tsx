@@ -63,7 +63,7 @@ export default function Movie() {
           }
         );
         setIsLoading(false);
-        setRecomendations(data.data.results.slice(0, 8));
+        setRecomendations(data.data.results.slice(0, 10));
       } catch (error) {
         console.error(error);
         setIsLoading(false);
@@ -80,13 +80,13 @@ export default function Movie() {
       {" "}
       <Header />
       <main className="flex flex-col gap-20 p-6">
-        <section className="flex items-center justify-center gap-4">
+        <section className="flex items-center justify-center gap-4 max-md:flex-col">
           <Image
             src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
             width={500}
             height={750}
             alt={movie?.title ? movie?.title : "Poster"}
-            className="h-96  rounded-2xl"
+            className="w-72 rounded-2xl"
           />
           <div className="flex h-1/2 flex-col justify-between gap-3">
             <h1 className="text-2xl font-bold">{movie?.title}</h1>
@@ -122,7 +122,7 @@ export default function Movie() {
         </section>
         <section className="flex flex-col gap-4">
           <h2 className="text-xl font-medium">Recomendações:</h2>
-          <div className="flex flex-wrap gap-4">
+          <div className="grid grid-cols-5 gap-6 max-md:grid-cols-2">
             {recomendations.map((recomendation) => (
               <MovieCard key={recomendation.id} movie={recomendation} />
             ))}

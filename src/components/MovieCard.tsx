@@ -16,7 +16,7 @@ export default function MovieCard({ movie }: { movie: MovieCardProps }) {
   return (
     <Link
       href={`/movie/${movie.id}`}
-      className="flex min-h-[30rem] w-[15.5rem] flex-col items-center rounded-xl bg-gray-300 shadow-lg transition-transform hover:scale-105"
+      className="flex min-h-[30rem] w-[90%] flex-col items-center rounded-xl bg-gray-300 shadow-lg transition-transform hover:scale-105"
     >
       <Image
         src={`https://image.tmdb.org/t/p/w500${

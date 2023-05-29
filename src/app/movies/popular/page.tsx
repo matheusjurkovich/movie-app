@@ -40,7 +40,7 @@ export default function PopularMovies() {
   return (
     <>
       <Header />
-      <main className="grid grid-cols-5 gap-6 p-6">
+      <main className="grid grid-cols-5 flex-col gap-6 p-6 max-md:grid-cols-2">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
