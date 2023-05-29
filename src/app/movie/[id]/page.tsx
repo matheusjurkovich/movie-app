@@ -26,22 +26,30 @@ export default function Movie() {
   const { id } = useParams();
   useEffect(() => {
     const getMovie = async () => {
-      const data = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=pt-BR`
-      );
-      setMovie(data.data);
+      try {
+        const data = await axios.get(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=pt-BR`
+        );
+        setMovie(data.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getMovie();
-  }, []);
+  }, [id]);
   useEffect(() => {
     const getRecomendations = async () => {
-      const data = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${apiKey}&language=pt-BR&page=1`
-      );
-      setRecomendations(data.data.results.slice(0, 5));
+      try {
+        const data = await axios.get(
+          `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${apiKey}&language=pt-BR&page=1`
+        );
+        setRecomendations(data.data.results.slice(0, 5));
+      } catch (error) {
+        console.error(error);
+      }
     };
     getRecomendations();
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -92,7 +100,7 @@ export default function Movie() {
           <h2 className="text-xl font-medium">Recomendações:</h2>
           <div className="flex flex-wrap gap-4">
             {recomendations.map((recomendation) => (
-              <MovieCard key={movie?.id} movie={recomendation} />
+              <MovieCard key={recomendation.id} movie={recomendation} />
             ))}
           </div>
         </section>

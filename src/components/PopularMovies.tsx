@@ -6,17 +6,20 @@ import { MovieCardProps } from "./MovieCard";
 
 export default function PopularMovies() {
   const [movies, setMovies] = useState<MovieCardProps[]>([]);
-
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   useEffect(() => {
-    const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-    const getMovies = async () => {
-      const data = await axios.get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`
-      );
-      setMovies(data.data.results.slice(0, 6));
-    };
-    getMovies();
-  }, []);
+    try {
+      const getMovies = async () => {
+        const data = await axios.get(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`
+        );
+        setMovies(data.data.results.slice(0, 6));
+      };
+      getMovies();
+    } catch (error) {
+      console.error(error);
+    }
+  });
   return (
     <section className="flex flex-col">
       {" "}
