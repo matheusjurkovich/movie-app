@@ -86,14 +86,14 @@ export default function Movie() {
       {" "}
       <Header />
       <main className="flex flex-col gap-20 p-6 dark:bg-zinc-800">
-        <section className="flex items-center justify-center gap-4 max-md:flex-col">
+        <section className="flex items-center justify-start gap-4 max-md:flex-col">
           <Image
             src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
             width={500}
             height={750}
             alt={movie?.title ? movie?.title : "Poster"}
             title={movie?.title ? movie?.title : "Poster"}
-            className="w-72 rounded-2xl"
+            className="w-80 rounded-2xl"
           />
           <div className="flex h-1/2 flex-col justify-between gap-3">
             <h1 className="text-2xl font-bold dark:text-gray-50">
@@ -135,7 +135,7 @@ export default function Movie() {
           <h2 className="text-xl font-medium dark:text-gray-50">
             Recomendações:
           </h2>
-          <div className="grid grid-cols-5 gap-6 max-md:grid-cols-2">
+          <div className="grid w-full grid-cols-5 items-center gap-6 overflow-x-auto p-4 max-md:flex ">
             {recomendations.map((recomendation) => (
               <MovieCard key={recomendation.id} movie={recomendation} />
             ))}
