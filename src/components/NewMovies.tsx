@@ -44,7 +44,7 @@ export default function NewMovies() {
           title="Veja mais"
           href="/movies/new?page=1"
         >
-          <ArrowRight size={36} className="dark:text-gray-900" />
+          <ArrowRight size={36} className="dark:text-gray-600" />
         </Link>
       </div>
     </section>

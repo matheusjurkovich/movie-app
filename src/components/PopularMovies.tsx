@@ -43,7 +43,7 @@ export default function PopularMovies() {
           title="Veja mais"
           href="/movies/popular?page=1"
         >
-          <ArrowRight size={36} className="dark:text-gray-900" />
+          <ArrowRight size={36} className="dark:text-gray-600" />
         </Link>
       </div>
     </section>

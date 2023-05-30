@@ -18,8 +18,8 @@ export default function Header() {
   };
 
   return (
-    <header className="flex items-center justify-between bg-gradient-to-r from-green-400 to-blue-500 px-6 py-4">
-      <h1 className="text-4xl font-bold text-gray-900">
+    <header className="flex items-center justify-between bg-gradient-to-r from-green-400 to-blue-500 px-6 py-4 max-md:flex-col max-md:gap-6">
+      <h1 className="text-4xl font-bold text-gray-600">
         <a href="/">Movie App</a>
       </h1>
 
