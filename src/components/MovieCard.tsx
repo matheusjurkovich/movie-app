@@ -23,6 +23,7 @@ export default function MovieCard({ movie }: { movie: MovieCardProps }) {
           movie?.poster_path ? movie.poster_path : "Poster"
         }`}
         alt={movie?.title ? movie.title : ""}
+        title={movie?.title ? movie?.title : "Poster"}
         width={500}
         height={500}
         className="w-full rounded-t-xl"
@@ -31,7 +32,7 @@ export default function MovieCard({ movie }: { movie: MovieCardProps }) {
       <div className="flex h-full w-full flex-col justify-between gap-2 p-2">
         <h2 className="text-2xl font-bold">{movie?.title}</h2>
 
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between">
           <div className="flex items-center gap-2">
             <Star size={16} fill="yellow" />
             {movie?.vote_average}

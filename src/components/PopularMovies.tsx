@@ -31,7 +31,7 @@ export default function PopularMovies() {
   return (
     <section className="flex w-full flex-col">
       {" "}
-      <h1 className="mb-4 text-xl font-medium leading-tight dark:text-white">
+      <h1 className="mb-4 text-xl font-medium leading-tight dark:text-gray-50">
         Popular Movies
       </h1>
       <div className="flex w-full items-center gap-4 overflow-x-auto p-4 ">
@@ -41,7 +41,7 @@ export default function PopularMovies() {
         <Link title="Veja mais" href="/movies/popular">
           <ArrowRightCircle
             size={48}
-            className="transition-transform hover:-translate-y-2 hover:scale-105"
+            className="transition-transform hover:-translate-y-2 hover:scale-105 dark:text-gray-50"
           />
         </Link>
       </div>

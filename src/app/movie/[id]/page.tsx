@@ -8,8 +8,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import dayjs from "dayjs";
 import BackToTopButton from "@/components/BackToTopButton";
-
 import Loading from "@/components/Loading";
+
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 interface MovieProps extends MovieCardProps {
@@ -73,32 +73,43 @@ export default function Movie() {
   }, [id]);
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <>
+        <Header />
+        <Loading />;
+        <Footer />
+      </>
+    );
   }
   return (
     <>
       {" "}
       <Header />
-      <main className="flex flex-col gap-20 p-6">
+      <main className="flex flex-col gap-20 p-6 dark:bg-zinc-800">
         <section className="flex items-center justify-center gap-4 max-md:flex-col">
           <Image
             src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
             width={500}
             height={750}
             alt={movie?.title ? movie?.title : "Poster"}
+            title={movie?.title ? movie?.title : "Poster"}
             className="w-72 rounded-2xl"
           />
           <div className="flex h-1/2 flex-col justify-between gap-3">
-            <h1 className="text-2xl font-bold">{movie?.title}</h1>
-            <p className="leading-relaxed tracking-wide">{movie?.overview}</p>
+            <h1 className="text-2xl font-bold dark:text-gray-50">
+              {movie?.title}
+            </h1>
+            <p className="leading-relaxed tracking-wide dark:text-gray-50">
+              {movie?.overview}
+            </p>
 
-            <p>
+            <p className="dark:text-gray-50">
               Data de lançamento:{" "}
               {movie?.release_date
                 ? dayjs(movie?.release_date).format("DD/MM/YYYY")
                 : movie?.release_date}
             </p>
-            <p>
+            <p className="dark:text-gray-50">
               Tempo de duração:{" "}
               {movie?.runtime
                 ? (() => {
@@ -108,9 +119,9 @@ export default function Movie() {
                   })()
                 : movie?.runtime}
             </p>
-            <p>
+            <p className="dark:text-gray-50">
               Generos:{" "}
-              <span className="flex gap-4">
+              <span className="flex flex-wrap gap-4 dark:text-gray-900">
                 {movie?.genres.map((genre) => (
                   <span className="rounded bg-zinc-400 p-2" key={genre.id}>
                     {genre.name}
@@ -121,7 +132,9 @@ export default function Movie() {
           </div>
         </section>
         <section className="flex flex-col gap-4">
-          <h2 className="text-xl font-medium">Recomendações:</h2>
+          <h2 className="text-xl font-medium dark:text-gray-50">
+            Recomendações:
+          </h2>
           <div className="grid grid-cols-5 gap-6 max-md:grid-cols-2">
             {recomendations.map((recomendation) => (
               <MovieCard key={recomendation.id} movie={recomendation} />

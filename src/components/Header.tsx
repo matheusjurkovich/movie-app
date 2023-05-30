@@ -3,11 +3,11 @@ import { Search } from "lucide-react";
 export default function Header() {
   return (
     <header className="flex items-center justify-between bg-gradient-to-r from-green-400 to-blue-500 px-6 py-4">
-      <h1 className="text-4xl font-bold">
+      <h1 className="text-4xl font-bold text-gray-900">
         <a href="/">Movie App</a>
       </h1>
 
-      <div className="flex items-center rounded-md border border-gray-300 bg-white">
+      <div className="flex items-center rounded-md border border-gray-300 bg-white px-2">
         <input
           type="text"
           name="search"
