@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 export default function Loadng() {
   return (
-    <div role="status" className="flex h-96 items-center justify-center">
+    <div role="status" className="flex h-96 items-center justify-center dark:bg-zinc-800">
       <svg
         aria-hidden="true"
         className="mr-2 h-16 w-16 animate-spin fill-blue-700 text-gray-200 dark:text-gray-300"

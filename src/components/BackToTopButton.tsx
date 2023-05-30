@@ -32,7 +32,7 @@ const BackToTopButton = () => {
     <>
       {isVisible && (
         <button
-          className="animate-fade-in fixed bottom-8 right-8 rounded-full bg-blue-500 p-2 text-white transition-opacity hover:bg-blue-600"
+          className="animate-fade-in fixed bottom-8 right-8 rounded-full bg-blue-500 p-2 text-gray-900 transition-opacity hover:bg-blue-600"
           onClick={handleBackToTop}
         >
           <ArrowUp size={24} />

@@ -1,3 +1,4 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import React from "react";
 
 interface Props {
@@ -31,7 +32,7 @@ export default function Pagination({
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`rounded-full bg-blue-500 p-2 px-4 font-bold  text-white hover:bg-blue-700 ${
+          className={`rounded-full bg-blue-500 p-2 px-4 font-bold  text-gray-900 hover:bg-blue-700 ${
             activePage === i ? "bg-blue-700" : ""
           }`}
         >
@@ -47,18 +48,18 @@ export default function Pagination({
       <button
         onClick={() => handlePageChange(activePage - 1)}
         disabled={activePage === 1}
-        className="rounded-full bg-blue-500 p-2 font-bold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+        className="rounded-full bg-blue-500 p-2 font-bold text-gray-900 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {"< Anterior"}
+        {<ArrowLeft size={24} />}
       </button>
 
       {renderPageButtons()}
       <button
         onClick={() => handlePageChange(activePage + 1)}
         disabled={activePage === totalPages}
-        className="rounded-full bg-blue-500 p-2 font-bold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+        className="rounded-full bg-blue-500 p-2 font-bold text-gray-900 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {"Próxima >"}
+        {<ArrowRight size={24} />}
       </button>
     </div>
   );
