@@ -41,7 +41,7 @@ export default function PopularMovies() {
         <Link
           className="absolute right-0 rounded-full bg-gray-200  p-2 transition-transform hover:-translate-y-2 dark:bg-gray-100"
           title="Veja mais"
-          href="/movies/popular"
+          href="/movies/popular?page=1"
         >
           <ArrowRight size={36} className="dark:text-gray-900" />
         </Link>

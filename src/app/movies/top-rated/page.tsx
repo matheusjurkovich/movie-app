@@ -6,11 +6,15 @@ import MovieCard, { MovieCardProps } from "@/components/MovieCard";
 import Pagination from "@/components/Pagination";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function BestMovies() {
+  const searchParams = useSearchParams();
+  const page = Number(searchParams.get("page"));
   const [movies, setMovies] = useState<MovieCardProps[]>([]);
-  const [activePage, setActivePage] = useState(1);
+  const [activePage, setActivePage] = useState(page);
   const [totalPages, setTotalPages] = useState(0);
+  const router = useRouter();
 
   const handlePageChange = (pageNumber: number) => {
     setActivePage(pageNumber);
@@ -31,11 +35,12 @@ export default function BestMovies() {
         setTotalPages(data.data.total_pages);
         setMovies(data.data.results);
       };
+      router.push(`/movies/top-rated?page=${activePage}`);
       getMovies();
     } catch (error) {
       console.error(error);
     }
-  });
+  }, [activePage]);
   return (
     <>
       <Header />
