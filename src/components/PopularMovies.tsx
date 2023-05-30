@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 import { MovieCardProps } from "./MovieCard";
-import { ArrowRightCircle } from "lucide-react";
+import { ArrowRight, ArrowRightCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function PopularMovies() {
@@ -38,11 +38,12 @@ export default function PopularMovies() {
         {movies.map((movie: MovieCardProps) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
-        <Link title="Veja mais" href="/movies/popular">
-          <ArrowRightCircle
-            size={48}
-            className="transition-transform hover:-translate-y-2 hover:scale-105 dark:text-gray-50"
-          />
+        <Link
+          className="absolute right-0 rounded-full bg-gray-200  p-2 transition-transform hover:-translate-y-2 dark:bg-gray-100"
+          title="Veja mais"
+          href="/movies/popular"
+        >
+          <ArrowRight size={36} className="dark:text-gray-900" />
         </Link>
       </div>
     </section>
