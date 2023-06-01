@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import MovieCard, { MovieCardProps } from "../../components/MovieCard";
 import axios from "axios";
 import Header from "@/components/Header";
@@ -12,23 +12,24 @@ export default function Search() {
   const [movies, setMovies] = useState<MovieCardProps[]>([]);
   const [activePage, setActivePage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-
+  const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get("q");
 
   const handlePageChange = (pageNumber: number) => {
     setActivePage(pageNumber);
   };
-
+  const acessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   useEffect(() => {
     const getMovies = async () => {
       try {
         const data = await axios.get(
-          `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=pt-BR&query=${search}&page=${activePage}`,
+          `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=pt-BR&query=${search}&page=${activePage}`,
           {
             headers: {
               accept: "application/json",
-              authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMmM1NGY4MDFjYzMwZjliOTRjNTM0Mjk1MDBjNTZhYSIsInN1YiI6IjY0NGFiM2E4MGU0ZmM4MDJmYjMzMDJiNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VO0EgMVnQrokBdZiArutvcQ_aSUCBOSwMxhaAEMfzAM`,
+              authorization: `Bearer ${acessToken}`,
             },
           }
         );
@@ -38,6 +39,7 @@ export default function Search() {
         console.error(error);
       }
     };
+    router.push(`/movies/top-rated?page=${activePage}`);
     getMovies();
   }, [search]);
   return (

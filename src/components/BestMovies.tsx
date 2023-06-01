@@ -8,6 +8,7 @@ import { ArrowRight, ArrowRightCircle } from "lucide-react";
 export default function BestMovies() {
   const [movies, setMovies] = useState<MovieCardProps[]>([]);
 
+  const acessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   useEffect(() => {
     try {
@@ -17,7 +18,7 @@ export default function BestMovies() {
           {
             headers: {
               accept: "application/json",
-              authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMmM1NGY4MDFjYzMwZjliOTRjNTM0Mjk1MDBjNTZhYSIsInN1YiI6IjY0NGFiM2E4MGU0ZmM4MDJmYjMzMDJiNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VO0EgMVnQrokBdZiArutvcQ_aSUCBOSwMxhaAEMfzAM`,
+              authorization: `Bearer ${acessToken}`,
             },
           }
         );

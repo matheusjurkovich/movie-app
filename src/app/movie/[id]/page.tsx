@@ -12,6 +12,7 @@ import Loading from "@/components/Loading";
 import ReactPlayer from "react-player";
 
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+const acessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
 
 interface MovieProps extends MovieCardProps {
   overview: string;
@@ -34,7 +35,7 @@ interface TrailerProps {
 const headers = {
   headers: {
     accept: "application/json",
-    authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMmM1NGY4MDFjYzMwZjliOTRjNTM0Mjk1MDBjNTZhYSIsInN1YiI6IjY0NGFiM2E4MGU0ZmM4MDJmYjMzMDJiNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VO0EgMVnQrokBdZiArutvcQ_aSUCBOSwMxhaAEMfzAM`,
+    authorization: `Bearer ${acessToken}`,
   },
 };
 
@@ -149,11 +150,13 @@ export default function Movie() {
                   </span>
                 </p>
               </div>
-              <div className="flex w-1/2 flex-col gap-4 max-md:w-full">
+              <div className="flex w-1/2 flex-col gap-4 overflow-hidden rounded-3xl  max-md:w-full">
                 <ReactPlayer
                   url={`https://www.youtube.com/watch?v=${trailers?.key}`}
                   controls
                   width="100%"
+                  loop
+                  muted
                 />
               </div>
             </div>
