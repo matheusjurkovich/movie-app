@@ -41,7 +41,7 @@ export default function Search() {
     };
     router.push(`/search?q=${search}&page=${activePage}`);
     getMovies();
-  }, [search]);
+  }, [search, activePage]);
   return (
     <>
       <Header />
