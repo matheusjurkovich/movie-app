@@ -39,7 +39,7 @@ export default function Search() {
         console.error(error);
       }
     };
-    router.push(`/movies/top-rated?page=${activePage}`);
+    router.push(`/search?q=${search}&page=${activePage}`);
     getMovies();
   }, [search]);
   return (
