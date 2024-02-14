@@ -28,7 +28,7 @@ export default function BestMovies() {
     } catch (error) {
       console.error(error);
     }
-  });
+  }, [acessToken, apiKey]);
   return (
     <section className="flex w-full flex-col">
       {" "}
